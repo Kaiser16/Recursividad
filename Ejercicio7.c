@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
- 1≤i≤(n/2)−1: A[i]>A[2∗i] ∧ A[i]>A[2∗i+1]
-*/
 
 int llamada_sumatorio (int v[],int n);
 int sumatorio (int v[],int n,int i,int sum);
@@ -27,5 +24,5 @@ int sumatorio (int v[],int n,int i,int sum)
             return sumatorio(v,n,i+1,sum+v[i]);
         }
     }
-    return sumatorio(v,n,i+1,sum);
+    else return sumatorio(v,n,i+1,sum);
 }
