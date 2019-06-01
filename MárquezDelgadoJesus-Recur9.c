@@ -7,8 +7,8 @@ int sumatorio (int v[],int i,int n,int sum);
 
 int main ()
 {
-    int n = 10;
-    int v[10] = {1,2,3,4,5,1,8,3,9,4};
+    int n = 5;
+    int v[5] = {1,2,3,4,5};
     int j,k;
     printf("\n Parejas: %i\n",llamada_parejas(v,n));
     return 0;
@@ -26,12 +26,16 @@ int parejas(int v[],int n,int j,int k,int cont)
 {
     if(j > n) return cont;
     else if(k > n) return parejas(v,n,j+1,0,cont);
-    else if(sumatorio(v,0,j,0) == sumatorio(v,k,n,0)) 
+    else 
     {
-        printf("\n (%i,%i) %i = %i \n",j,k,sumatorio(v,0,j,0),sumatorio(v,k,n,0));
-        return parejas(v,n,j,k+1,cont+1);
+        printf("\n Pareja: (%d,%d) Sumatorio A: %d Sumatorio B: %d\n",j,k,sumatorio(v,0,j,0),sumatorio(v,k,n,0));
+        if(sumatorio(v,0,j,0) == sumatorio(v,k,n,0)) 
+        {
+            printf("\n | (%i,%i) %i = %i | \n",j,k,sumatorio(v,0,j,0),sumatorio(v,k,n,0));
+            return parejas(v,n,j,k+1,cont+1);
+        }
+        else return parejas(v,n,j,k+1,cont);
     }
-    else return parejas(v,n,j,k+1,cont);
 }
 
 //cabecera: int sumatorio (int v[],int i,int n,int sum)
